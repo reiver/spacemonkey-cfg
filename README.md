@@ -2,6 +2,28 @@
 
 Get spacemonkey configuration information.
 
+## Usage
+
+This program is meant to be used both my humans, and by machines.
+
+Humans will probably run it like this:
+```
+spacemonkey cfg --list
+```
+Or this:
+```
+spacemonkey cfg -eol <name>
+```
+Or this:
+```
+spacemonkey cfg -eol -v <name>
+```
+
+Where machines will probably run it like:
+```
+spacemonkey cfg <name>
+```
+
 ## Example Usage
 
 To get the path to the data-directory for the gemini-protocol:
