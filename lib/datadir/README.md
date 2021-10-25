@@ -2,7 +2,7 @@
 
 Package `datadir` provides tools for working with data-directories.
 
-With Linux, Unix, and other Unix-like systems, one concept is — where should a user-application store user-data‽
+With Linux, Unix, and other Unix-like systems, one concept is — where should a user-application store a particular user's user-data‽
 
 Over the decades, the conventions for where user-applications should store their user-data has changed.
 
