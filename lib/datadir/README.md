@@ -8,7 +8,7 @@ Over the decades, the conventions for where user-applications should store their
 
 ## Usage
 
-Here is how it can be used:
+Here is how the tools in this package  can be used:
 ```go
 path, err := datadir.Path()
 
@@ -25,6 +25,13 @@ var appDataPath string = filepath.Join(path, appDataDir)
 // And then the user-application would store this user's user-data at "/home/username/.local/share/myapp"
 
 ```
+
+Note that a user-application should **not** store a user's user-data directly in the path it gets from `datadir.Path()` !!
+
+This is the base-path — the user-application should store a user's user-data in  a sub-directory from this base-path.
+
+So, for example, if the base-path is something like `"/home/username/.local/share"`, the user-application should **not** store the user's user-data there,
+but instead (if the user-application is, for example, named `foobar` then) the user-application should use a sub-directory like `foobar/` to get `"/home/username/.local/share/foobar"`
 
 ## Algorithm
 
