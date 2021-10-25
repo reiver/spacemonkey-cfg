@@ -2,6 +2,8 @@
 
 Get spacemonkey configuration information.
 
+For more about spacemonkey see https://github.com/reiver/spacemonkey
+
 ## Usage
 
 This program is meant to be used both my humans, and by machines.
