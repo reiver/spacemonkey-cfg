@@ -14,5 +14,10 @@ To get the path to the data-directory for the rook-protocol:
 spacemonkey cfg protocol/rook/data-path
 ```
 
+To get a complete list of all the (registered) configuration names.
+```
+spacemonkey cfg --list
+```
+
 ## See Also
 * https://github.com/reiver/spacemonkey
