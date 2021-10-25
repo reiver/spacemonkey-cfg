@@ -66,3 +66,21 @@ func (receiver *Registrar) Get(name string) (string, bool, error) {
 		return value, true, nil
 	}
 }
+
+func (receiver *Registrar) ForEachName(fn func(string)) {
+	if nil == receiver {
+		return
+	}
+
+	receiver.mutex.Lock()
+	defer receiver.mutex.Unlock()
+
+	values := receiver.values
+	if nil == values {
+		return
+	}
+
+	for name, _ := range values {
+		fn(name)
+	}
+}

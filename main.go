@@ -12,6 +12,18 @@ import (
 
 func main() {
 
+	// If the user calls spacemonkey-cfg wit the --list flag then,
+	// output all the (registered) configuration names,
+	// and then exit.
+	if arg.List {
+		logsrv.Log("--list — will try to list all (register) configuration names")
+
+		regsrv.ForEachName(func(name string){
+			fmt.Fprintln(os.Stdout, name)
+		})
+		return
+	}
+
 	var name string
 	{
 		if len(arg.Values) < 1 {

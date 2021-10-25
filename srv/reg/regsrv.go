@@ -16,3 +16,7 @@ func Register(handler hdl.Handler, name string) error {
 func Get(name string) (string, bool, error) {
 	return registry.Get(name)
 }
+
+func ForEachName(fn func(string)) {
+	registry.ForEachName(fn)
+}
