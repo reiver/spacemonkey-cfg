@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/reiver/spacemonkey-cfg/arg"
-	"github.com/reiver/spacemonkey-cfg/lib/ptcl/gmni"
-	"github.com/reiver/spacemonkey-cfg/lib/ptcl/rook"
+	_ "github.com/reiver/spacemonkey-cfg/reg"
 	"github.com/reiver/spacemonkey-cfg/srv/log"
+	"github.com/reiver/spacemonkey-cfg/srv/reg"
 
 	"fmt"
 	"os"
@@ -25,29 +25,17 @@ func main() {
 
 	var value string
 	{
-		switch name {
-		case "protocol/gemini/data-path":
-			path, err := gmni.DataPath()
-			if nil != err {
-				logsrv.Log("error:", err)
-				os.Exit(1)
-				return
-			}
+		var found bool
+		var err error
 
-			value = path
-		case "protocol/rook/data-path":
-			path, err := rook.DataPath()
-			if nil != err {
-				logsrv.Log("error:", err)
-				os.Exit(1)
-				return
-			}
-
-			value = path
-		default:
-			logsrv.Logf("unknown name: %q", name)
+		value, found, err = regsrv.Get(name)
+		if nil != err {
+			logsrv.Log("error:", err)
 			os.Exit(1)
 			return
+		}
+		if !found {
+			value = ""
 		}
 	}
 	logsrv.Logf("value: %q", value)
